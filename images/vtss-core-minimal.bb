@@ -1,6 +1,6 @@
 require recipes-core/images/core-image-minimal.bb
 
-IMAGE_INSTALL += " vtss-api"
+IMAGE_INSTALL += " vtss-api aufs-util mtd-utils"
 
 LICENSE = "MIT"
 
