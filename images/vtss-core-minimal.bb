@@ -1,6 +1,6 @@
 require recipes-core/images/core-image-minimal.bb
 
-IMAGE_INSTALL += " vtss-api mtd-utils tcpdump dropbear"
+IMAGE_INSTALL += " vtss-api mtd-utils tcpdump dropbear smbstax"
 
 LICENSE = "MIT"
 
