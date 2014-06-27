@@ -3,8 +3,8 @@ SECTION = "libs/network"
 LICENSE = "Proprietary"
 DEPENDS = "vtss-api libfcgi"
 
-SRCREV  = "bec2048e1c5d"
-PR      = "r1"
+SRCREV  = "0f0fe0cf4cf2"
+PR      = "r4"
 PV      = "0.1"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=382ac918ae415b39bcc77838ac8c1ea7"
