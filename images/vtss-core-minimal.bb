@@ -4,6 +4,8 @@ IMAGE_INSTALL += " vtss-api mtd-utils tcpdump dropbear"
 
 IMAGE_INSTALL_append_serval1 = " smbstax"
 
+IMAGE_INSTALL_append_jaguar1 = " vtss-api"
+
 LICENSE = "MIT"
 
 IMAGE_FSTYPES ?= "squashfs-xz"

@@ -26,9 +26,14 @@ do_nuke_api () {
         rm -fr vtss_api
 }
 
-do_configure () {
+do_configure_append_serval1 () {
  cd build
  ln -sf configs/smb_switch_serval_ref_linux_icpu.mk config.mk
+}
+
+do_configure_append_jaguar1 () {
+ cd build
+ ln -sf configs/smb_switch_jr1_ref_linux_icpu.mk config.mk
 }
 
 do_compile () {
