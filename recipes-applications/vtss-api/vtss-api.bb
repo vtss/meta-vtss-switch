@@ -3,8 +3,8 @@ SECTION = "libs/network"
 LICENSE = "Proprietary"
 RPROVIDES_${PN} = "native/vtss-api"
 
-SRCREV  = "70c82a9fc1ab"
-PR      = "r4"
+SRCREV  = "e2c500321217"
+PR      = "r7"
 PV      = "0.1"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=7b66b1d142643bca86a4723f577dc130"
