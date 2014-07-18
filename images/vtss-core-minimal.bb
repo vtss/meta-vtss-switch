@@ -2,7 +2,7 @@ require recipes-core/images/core-image-minimal.bb
 
 IMAGE_INSTALL += " vtss-api mtd-utils tcpdump dropbear"
 
-IMAGE_INSTALL_append_serval1 = " smbstax"
+IMAGE_INSTALL_append_serval1 = " vtss-api"
 
 IMAGE_INSTALL_append_jaguar1 = " vtss-api"
 
