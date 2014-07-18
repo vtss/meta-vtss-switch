@@ -3,17 +3,15 @@ SECTION = "libs/network"
 LICENSE = "Proprietary"
 RPROVIDES_${PN} = "native/vtss-api"
 
-SRCREV  = "0241e6e3f56a"
-PR      = "r8"
-PV      = "0.1"
+PR      = "r1"
+PV      = "4_60a"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=7b66b1d142643bca86a4723f577dc130"
 
 inherit cmake
 
-SRC_URI = "hg://soft02.dk.vitesse.com/hg/;protocol=http;module=project/vtss_api"
-
-S = "${WORKDIR}/project/vtss_api"
+SRC_URI = "file://API_${PV}.tar.gz"
+S = "${WORKDIR}/API_${PV}/vtss_api"
 
 OECMAKE_BUILDPATH  = "${WORKDIR}/build"
 OECMAKE_SOURCEPATH = "${S}"
