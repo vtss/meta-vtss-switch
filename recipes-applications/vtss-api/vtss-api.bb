@@ -41,6 +41,20 @@ EXTRA_OECMAKE_prepend_jaguar1 = "                                 \
                               -DVTSS_PRODUCT_HW=BOARD_JAGUAR1_REF \
                               "
 
+EXTRA_OECMAKE_prepend_jaguar2 = "                                 \
+                              -DVTSS_PRODUCT_CHIP=JAGUAR_2        \
+                              -DVTSS_PRODUCT_HW=BOARD_JAGUAR2_REF \
+                              -DVTSS_OPT_PORT_COUNT=15            \
+                              -DVTSS_CHIP_10G_PHY=OFF             \
+                              "
+
+EXTRA_OECMAKE_prepend_serval2 = "                                 \
+                              -DVTSS_PRODUCT_CHIP=JAGUAR_2        \
+                              -DVTSS_PRODUCT_HW=BOARD_JAGUAR2_REF \
+                              -DVTSS_OPT_PORT_COUNT=53            \
+                              -DVTSS_CHIP_10G_PHY=OFF             \
+                              "
+
 FILES_${PN}-dev += "/usr/share/vtss_api/cmake/*"
 PKG_${PN} = "${PN}-${MACHINE}"
 PKG_${PN}-dev = "${PN}-${MACHINE}-dev"
