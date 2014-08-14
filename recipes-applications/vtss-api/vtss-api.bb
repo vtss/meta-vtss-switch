@@ -29,26 +29,35 @@ EXTRA_OECMAKE_prepend_serval1 = "                                 \
                               -DVTSS_PRODUCT_HW=BOARD_SERVAL_REF  \
                               -DVTSS_CHIP_10G_PHY=OFF             \
                               "
+
 EXTRA_OECMAKE_prepend_luton26 = " \
                               -DVTSS_PRODUCT_CHIP=SPARX_III_26    \
                               -DVTSS_OPT_PORT_COUNT=26            \
                               -DVTSS_PRODUCT_HW=BOARD_LUTON26_REF \
                               -DVTSS_CHIP_10G_PHY=OFF             \
                               "
+
+EXTRA_OECMAKE_prepend_luton10 = " \
+                              -DVTSS_PRODUCT_CHIP=SPARX_III_10    \
+                              -DVTSS_OPT_PORT_COUNT=10            \
+                              -DVTSS_PRODUCT_HW=BOARD_LUTON10_REF \
+                              -DVTSS_CHIP_10G_PHY=OFF             \
+                              "
+
 EXTRA_OECMAKE_prepend_jaguar1 = "                                 \
                               -DVTSS_PRODUCT_CHIP=JAGUAR_1        \
                               -DVTSS_OPT_PORT_COUNT=29            \
                               -DVTSS_PRODUCT_HW=BOARD_JAGUAR1_REF \
                               "
 
-EXTRA_OECMAKE_prepend_jaguar2 = "                                 \
+EXTRA_OECMAKE_prepend_serval2 = "                                 \
                               -DVTSS_PRODUCT_CHIP=JAGUAR_2        \
                               -DVTSS_PRODUCT_HW=BOARD_JAGUAR2_REF \
                               -DVTSS_OPT_PORT_COUNT=15            \
                               -DVTSS_CHIP_10G_PHY=OFF             \
                               "
 
-EXTRA_OECMAKE_prepend_serval2 = "                                 \
+EXTRA_OECMAKE_prepend_jaguar2 = "                                 \
                               -DVTSS_PRODUCT_CHIP=JAGUAR_2        \
                               -DVTSS_PRODUCT_HW=BOARD_JAGUAR2_REF \
                               -DVTSS_OPT_PORT_COUNT=53            \
