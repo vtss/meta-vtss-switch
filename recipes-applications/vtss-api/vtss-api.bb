@@ -20,47 +20,60 @@ EXTRA_OECMAKE = "-DVTSS_PHY_API_ONLY=OFF             \
                  -DVTSS_FEATURE_MACSEC=OFF           \
                  -DVTSS_OPT_FDMA=OFF                 \
                  -DVTSS_APPL_MINI=ON                 \
-                 -DLIB_INSTALL_DIR:STRING=${baselib}"
+                 -DLIB_INSTALL_DIR:STRING=${baselib} ${VTSS_API_DEFINES}"
 EXTRA_OEMAKE  = "-C ${OECMAKE_BUILDPATH}"
 
-EXTRA_OECMAKE_prepend_serval1 = "                                 \
+VTSS_API_DEFINES_serval1 = "                                 \
                               -DVTSS_PRODUCT_CHIP=SERVAL          \
                               -DVTSS_OPT_PORT_COUNT=12            \
                               -DVTSS_PRODUCT_HW=BOARD_SERVAL_REF  \
                               -DVTSS_CHIP_10G_PHY=OFF             \
                               "
 
-EXTRA_OECMAKE_prepend_luton26 = " \
+VTSS_API_DEFINES_luton26 = " \
                               -DVTSS_PRODUCT_CHIP=SPARX_III_26    \
                               -DVTSS_OPT_PORT_COUNT=26            \
                               -DVTSS_PRODUCT_HW=BOARD_LUTON26_REF \
                               -DVTSS_CHIP_10G_PHY=OFF             \
                               "
 
-EXTRA_OECMAKE_prepend_luton10 = " \
+VTSS_API_DEFINES_luton10 = " \
                               -DVTSS_PRODUCT_CHIP=SPARX_III_10    \
                               -DVTSS_OPT_PORT_COUNT=10            \
                               -DVTSS_PRODUCT_HW=BOARD_LUTON10_REF \
                               -DVTSS_CHIP_10G_PHY=OFF             \
                               "
 
-EXTRA_OECMAKE_prepend_jaguar1 = "                                 \
+VTSS_API_DEFINES_jaguar1-cu24 = "                                 \
                               -DVTSS_PRODUCT_CHIP=JAGUAR_1        \
                               -DVTSS_OPT_PORT_COUNT=29            \
                               -DVTSS_PRODUCT_HW=BOARD_JAGUAR1_REF \
                               "
 
-EXTRA_OECMAKE_prepend_serval2 = "                                 \
-                              -DVTSS_PRODUCT_CHIP=JAGUAR_2        \
+VTSS_API_DEFINES_jaguar1-cu48 = "                                 \
+                              -DVTSS_PRODUCT_CHIP=E_STAX_III_68_DUAL \
+                              -DVTSS_OPT_PORT_COUNT=53            \
+                              -DVTSS_PRODUCT_HW=BOARD_JAGUAR1_REF \
+                              "
+
+VTSS_API_DEFINES_serval2 = "                                 \
+                              -DVTSS_PRODUCT_CHIP=SERVAL_2        \
                               -DVTSS_PRODUCT_HW=BOARD_JAGUAR2_REF \
                               -DVTSS_OPT_PORT_COUNT=15            \
                               -DVTSS_CHIP_10G_PHY=OFF             \
                               "
 
-EXTRA_OECMAKE_prepend_jaguar2 = "                                 \
+VTSS_API_DEFINES_jaguar2-cu24 = "                                 \
                               -DVTSS_PRODUCT_CHIP=JAGUAR_2        \
                               -DVTSS_PRODUCT_HW=BOARD_JAGUAR2_REF \
-                              -DVTSS_OPT_PORT_COUNT=53            \
+                              -DVTSS_OPT_PORT_COUNT=29            \
+                              -DVTSS_CHIP_10G_PHY=OFF             \
+                              "
+
+VTSS_API_DEFINES_jaguar2-cu48 = "                                 \
+                              -DVTSS_PRODUCT_CHIP=JAGUAR_2        \
+                              -DVTSS_PRODUCT_HW=BOARD_JAGUAR2_REF \
+                              -DVTSS_OPT_PORT_COUNT=51            \
                               -DVTSS_CHIP_10G_PHY=OFF             \
                               "
 
