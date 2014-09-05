@@ -1,0 +1,9 @@
+2014-09-05  Lars Povlsen  <lpovlsen@vitesse.com>
+
+	* Now supporting 'luton10', 'luton26', 'serval1', 'jaguar1-cu24',
+	'jaguar1-cu48', 'serval2', 'jaguar2-cu24', 'jaguar2-cu48'
+	targets. Note that 'jaguar1' has been renamed to 'jaguar1-cu24'.
+
+2014-07-18  Lars Povlsen  <lpovlsen@vitesse.com>
+
+	* Initial release. Platforms 'serval1' and 'jaguar1'.
