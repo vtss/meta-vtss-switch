@@ -1,3 +1,7 @@
+2014-10-06  Lars Povlsen  <lpovlsen@vitesse.com>
+
+	* Renamed image "vtss-core-minimal" to "vtss-image-minimal".
+
 2014-09-05  Lars Povlsen  <lpovlsen@vitesse.com>
 
 	* Now supporting 'luton10', 'luton26', 'serval1', 'jaguar1-cu24',
