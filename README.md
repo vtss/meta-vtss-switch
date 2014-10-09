@@ -42,5 +42,5 @@ The example above change the API compile flags to use the
 Carrier-Ethernet chip variant `SERVAL_1`, and also change the port
 count of the target device.
 
-It is recommended to suffix the builds by the machine target - in case
-you need to support multiple target systems.
+It is recommended to suffix the build settings by the machine target -
+in case you need to support multiple target systems.
