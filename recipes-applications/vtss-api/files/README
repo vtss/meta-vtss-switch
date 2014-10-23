@@ -1,8 +1,8 @@
 In this directory, you will need to put the tar archive for a
 supported API release.
 
-The current version at the time of writing is 4.63h, so you should put
-"API_4_63h.tar.gz" in this folder.
+The current version at the time of writing is 4.63j, so you should put
+"API_4_63j.tar.gz" in this folder.
 
 You should contact Vitesse Sales and Support to obtain the API
 release. See http://www.vitesse.com.
