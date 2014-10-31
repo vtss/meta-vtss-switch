@@ -4,14 +4,14 @@ LICENSE = "Proprietary"
 RPROVIDES_${PN} = "native/vtss-api"
 
 PR      = "r1"
-PV      = "4.63h"
+PV      = "4.63j"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=7b66b1d142643bca86a4723f577dc130"
 
 inherit cmake
 
-SRC_URI = "file://API_4_63h.tar.gz"
-S = "${WORKDIR}/API_4_63h/vtss_api"
+SRC_URI = "file://API_4_63j.tar.gz"
+S = "${WORKDIR}/API_4_63j/vtss_api"
 
 OECMAKE_BUILDPATH  = "${WORKDIR}/build"
 OECMAKE_SOURCEPATH = "${S}"
