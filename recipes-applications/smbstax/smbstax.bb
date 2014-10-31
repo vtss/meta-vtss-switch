@@ -3,8 +3,8 @@ SECTION = "libs/network"
 LICENSE = "Proprietary"
 DEPENDS = "vtss-api libfcgi"
 
-SRCREV  = "0f0fe0cf4cf2"
-PR      = "r4"
+SRCREV  = "27427c44a126"
+PR      = "r6"
 PV      = "0.1"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=382ac918ae415b39bcc77838ac8c1ea7"
@@ -16,6 +16,9 @@ SRC_URI += "file://default-config"
 
 FILES_${PN} += "/usr/doc/*"
 
+CONFIG_SETUP_serval1 = "Serval,SMBSTAX,SERVAL,BOARD_SERVAL_REF,yocto"
+CONFIG_SETUP_serval2 = "Jaguar2,SMBSTAX,STANDALONE,SERVAL_2,,yocto"
+
 S = "${WORKDIR}/project/webstax2"
 
 do_patch_append() {
@@ -26,14 +29,14 @@ do_nuke_api () {
         rm -fr vtss_api
 }
 
-do_configure_append_serval1 () {
+do_configure () {
  cd build
- ln -sf configs/smb_switch_serval_ref_linux_icpu.mk config.mk
-}
-
-do_configure_append_jaguar1 () {
- cd build
- ln -sf configs/smb_switch_jr1_ref_linux_icpu.mk config.mk
+ cat > config.mk <<EOF
+VTSS_API_EXTERNAL = 1
+include \$(BUILD)/make/templates/linuxSwitch.in
+\$(eval \$(call linuxSwitch/${CONFIG_SETUP}))
+\$(eval \$(call linuxSwitch/Build))
+EOF
 }
 
 do_compile () {
