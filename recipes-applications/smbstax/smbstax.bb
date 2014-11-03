@@ -16,8 +16,10 @@ SRC_URI += "file://default-config"
 
 FILES_${PN} += "/usr/doc/*"
 
-CONFIG_SETUP_serval1 = "Serval,SMBSTAX,SERVAL,BOARD_SERVAL_REF,yocto"
-CONFIG_SETUP_serval2 = "Jaguar2,SMBSTAX,STANDALONE,SERVAL_2,,yocto"
+CONFIG_SETUP_serval1      = "Serval,SMBSTAX,SERVAL,BOARD_SERVAL_REF,yocto"
+CONFIG_SETUP_serval2      = "Jaguar2,SMBSTAX,STANDALONE,SERVAL_2,,yocto"
+CONFIG_SETUP_jaguar2-cu24 = "Jaguar2,SMBSTAX,STANDALONE,SPARX_IV,29,yocto"
+CONFIG_SETUP_jaguar2-cu48 = "Jaguar2,SMBSTAX,STANDALONE,JAGUAR_2,51,yocto"
 
 S = "${WORKDIR}/project/webstax2"
 
