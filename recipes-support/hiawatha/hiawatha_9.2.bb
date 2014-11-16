@@ -1,4 +1,4 @@
-DESCRIPTION = "Lightweight secure web server"
+SUMMARY = "Lightweight secure web server"
 HOMEPAGE = "http://www.hiawatha-webserver.org"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
@@ -6,15 +6,13 @@ DEPENDS = "libxml2 libxslt"
 
 SECTION = "net"
 
-PR = "r3"
-
-SRC_URI = "http://hiawatha-webserver.org/files/${PN}-${PV}.tar.gz \
+SRC_URI = "http://hiawatha-webserver.org/files/${BP}.tar.gz \
            file://smbstax-json.conf \
            file://hiawatha-init \
            file://hiawatha.service "
 
-SRC_URI[md5sum] = "8abc4f85dbb9a76ed66e7f35de520064"
-SRC_URI[sha256sum] = "5e40119afb050b11737250c08d89ac7ba7472645738a48c06aa79979a19729fc"
+SRC_URI[md5sum] = "a77f044634884c4cc5d21dab44e822a3"
+SRC_URI[sha256sum] = "5d9cdec51c618bb3efab747030e593d9bd49dfaf3236254c8e0cb60715716dbf"
 
 INITSCRIPT_NAME = "hiawatha"
 INITSCRIPT_PARAMS = "defaults 70"
@@ -42,21 +40,24 @@ EXTRA_OECMAKE = " -DENABLE_IPV6=OFF \
                   -DWORK_DIR=/var/lib/hiawatha "
 
 do_install_append() {
-    # Copy over init script and sed in the correct sbin/log path
-    sed -i \
-        -e 's,sed_sbin_path,${sbindir},' \
-        -e 's,sed_localstatedir,${localstatedir},' \
-        ${WORKDIR}/hiawatha-init
-    install -d ${D}${sysconfdir}/init.d
+    # Copy over init script and sed in the correct sbin path
+    sed -i 's,sed_sbin_path,${sbindir},' ${WORKDIR}/hiawatha-init
+    mkdir -p ${D}${sysconfdir}/init.d
     install -m 0755 ${WORKDIR}/hiawatha-init ${D}${sysconfdir}/init.d/hiawatha
     install -d ${D}${sysconfdir}/hiawatha
     install -m 0644 ${WORKDIR}/smbstax-json.conf ${D}${sysconfdir}/hiawatha/hiawatha.conf
+
+    # configure php-fcgi to have a working configuration
+    # by default if php is installed
+    echo "Server = ${bindir}/php-cgi ; 2 ; 127.0.0.1:2005 ; nobody:nobody ; ${sysconfdir}/php/hiawatha-php5/php.ini" >> ${D}${sysconfdir}/hiawatha/php-fcgi.conf
 
     if ${@base_contains('DISTRO_FEATURES','systemd','true','false',d)}; then
         install -d ${D}/${systemd_unitdir}/system
         install -m 644 ${WORKDIR}/hiawatha.service ${D}/${systemd_unitdir}/system
     fi
 
+    rmdir "${D}${localstatedir}/run"
+    rmdir --ignore-fail-on-non-empty "${D}${localstatedir}"
 }
 
 CONFFILES_${PN} = " \
@@ -64,4 +65,5 @@ CONFFILES_${PN} = " \
     ${sysconfdir}/hiawatha/hiawatha.conf \
     ${sysconfdir}/hiawatha/index.xslt \
     ${sysconfdir}/hiawatha/mimetype.conf \
+    ${sysconfdir}/hiawatha/php-fcgi.conf \
 "
