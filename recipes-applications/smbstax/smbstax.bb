@@ -1,7 +1,7 @@
 DESCRIPTION = "SMBStaX for Linux"
 SECTION = "libs/network"
 LICENSE = "Proprietary"
-DEPENDS = "vtss-api libfcgi"
+DEPENDS = "vtss-api fcgi zlib"
 
 SRCREV  = "27427c44a126"
 PR      = "r6"
