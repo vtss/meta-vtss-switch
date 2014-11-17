@@ -1,4 +1,4 @@
-DESCRIPTION = "A sophisticated network protocol analyzer"
+SUMMARY = "A sophisticated network protocol analyzer"
 HOMEPAGE = "http://www.tcpdump.org/"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1d4b0366557951c84a94fabe3529f867"
@@ -6,20 +6,24 @@ SECTION = "console/network"
 DEPENDS = "libpcap"
 
 SRC_URI = " \
-    http://www.tcpdump.org/release/tcpdump-${PV}.tar.gz \
-    file://tcpdump_configure_no_-O2.patch \
-    file://0001-minimal-IEEE802.15.4-allowed.patch \
-    file://ipv6-cross.patch \
+    http://www.tcpdump.org/release/${BP}.tar.gz \
     file://configure.patch \
+    file://unnecessary-to-check-libpcap.patch \
+    file://tcpdump-configure-dlpi.patch \
+    file://tcpdump-cross-getaddrinfo.patch \
+    file://add-ptest.patch \
+    file://run-ptest \
 "
-SRC_URI[md5sum] = "a3fe4d30ac85ff5467c889ff46b7e1e8"
-SRC_URI[sha256sum] = "efd08b610210d39977ec3175fa82dad9fbd33587930081be2a905a712dba4286"
+SRC_URI[md5sum] = "dab267ec30216a069747d10314079ec7"
+SRC_URI[sha256sum] = "4c88c2a9aeb4047074f344fc9b2b6577b219972d359e192f6d12ccf983a13fd7"
+export LIBS=" -lpcap"
 
-inherit autotools
+inherit autotools-brokensep ptest
 CACHED_CONFIGUREVARS = "ac_cv_linux_vers=${ac_cv_linux_vers=2}"
 
-EXTRA_OECONF = "--without-crypto --disable-rpath \
-        ${@base_contains('DISTRO_FEATURES', 'ipv6', '--enable-ipv6', '--disable-ipv6', d)}"
+PACKAGECONFIG ??= "openssl ipv6"
+PACKAGECONFIG[openssl] = "--with-crypto=yes, --without-openssl --without-crypto, openssl"
+PACKAGECONFIG[ipv6] = "--enable-ipv6, --disable-ipv6,"
 
 EXTRA_AUTORECONF += " -I m4"
 
@@ -40,4 +44,8 @@ do_configure_append() {
 do_install_append() {
     # tcpdump 4.0.0 installs a copy to /usr/sbin/tcpdump.4.0.0
     rm -f ${D}${sbindir}/tcpdump.${PV}
+}
+
+do_compile_ptest() {
+	oe_runmake buildtest-TESTS
 }
