@@ -18,7 +18,10 @@ SRC_URI[md5sum] = "dab267ec30216a069747d10314079ec7"
 SRC_URI[sha256sum] = "4c88c2a9aeb4047074f344fc9b2b6577b219972d359e192f6d12ccf983a13fd7"
 export LIBS=" -lpcap"
 
-inherit autotools-brokensep ptest
+#inherit autotools-brokensep ptest
+#Using base autotools due to older Yocto versions
+inherit autotools
+B = "${S}"
 CACHED_CONFIGUREVARS = "ac_cv_linux_vers=${ac_cv_linux_vers=2}"
 
 PACKAGECONFIG ??= "openssl ipv6"

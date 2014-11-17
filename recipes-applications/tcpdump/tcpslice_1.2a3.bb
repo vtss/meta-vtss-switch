@@ -13,8 +13,8 @@ SRC_URI = "ftp://ftp.ee.lbl.gov/${BP}.tar.gz \
 SRC_URI[md5sum] = "e329cbeb7e589f132d92c3447c477190"
 SRC_URI[sha256sum] = "4096e8debc898cfaa16b5306f1c42f8d18b19e30e60da8d4deb781c8f684c840"
 
-inherit autotools-brokensep
-
+inherit autotools
+B = "${S}"
 DEPENDS += "libpcap"
 
 # We do not want to autoreconf.  We must specify srcdir as ".".
