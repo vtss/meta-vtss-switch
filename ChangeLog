@@ -1,3 +1,15 @@
+2014-12-17  Lars Povlsen  <lpovlsen@vitesse.com>
+
+	* The vtss-api recipe is updated to reflect the current API
+	version "4.64k".
+
+	* The packages "dropbear" and "tcpdump" are no longer included in
+	the "vtss-image-minimal" image.
+
+2014-10-23  Wenxi Jin     <wjin@vitesse.com>
+
+	* Updates for new API release 4_63j
+
 2014-10-06  Lars Povlsen  <lpovlsen@vitesse.com>
 
 	* Renamed image "vtss-core-minimal" to "vtss-image-minimal".
