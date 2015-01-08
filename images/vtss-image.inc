@@ -17,11 +17,12 @@ do_rootfs_append() {
 # Need this from kernel recipe...?
 LINUX_VERSION = "3.14"
 
-CHIP_FAMILY_luton28 = "1"
-CHIP_FAMILY_luton26 = "2"
-CHIP_FAMILY_jaguar1 = "3"
-CHIP_FAMILY_serval1 = "4"
-CHIP_FAMILY_jaguar2 = "5"
+CHIP_FAMILY_luton28      = "1"
+CHIP_FAMILY_luton26      = "2"
+CHIP_FAMILY_jaguar1      = "3"
+CHIP_FAMILY_jaguar1-dual = "3"
+CHIP_FAMILY_serval1      = "4"
+CHIP_FAMILY_jaguar2      = "5"
 
 do_combine_image() {
     K=${DEPLOY_DIR_IMAGE}/vmlinux-${LINUX_VERSION}.${MACHINE}.xz
