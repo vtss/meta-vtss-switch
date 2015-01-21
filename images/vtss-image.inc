@@ -30,3 +30,6 @@ do_combine_image() {
     I=${DEPLOY_DIR_IMAGE}/${PN}-${MACHINE}.img
     vtss-mkimage.pl --machine=${MACHINE} --soc=${SOC_FAMILY} --socfam=${CHIP_FAMILY} --kernel=$K --rootfs=$R --out=$I
 }
+
+# Don't grok GPLv3
+INCOMPATIBLE_LICENSE = "GPL-3.0 LGPL-3.0 AGPL-3.0"
