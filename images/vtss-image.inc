@@ -2,7 +2,7 @@ require recipes-core/images/core-image-minimal.bb
 
 inherit perlnative
 
-IMAGE_INSTALL += " vtss-api mtd-utils gdbserver libunwind "
+IMAGE_INSTALL += " mtd-utils gdbserver libunwind "
 
 LICENSE = "MIT"
 
