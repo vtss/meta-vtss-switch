@@ -17,6 +17,7 @@ do_rootfs_append() {
 # Need this from kernel recipe...?
 LINUX_VERSION = "3.14"
 
+CHIP_FAMILY_vcoreiii     = "0"
 CHIP_FAMILY_luton28      = "1"
 CHIP_FAMILY_luton26      = "2"
 CHIP_FAMILY_jaguar1      = "3"
@@ -28,7 +29,8 @@ do_combine_image() {
     K=${DEPLOY_DIR_IMAGE}/vmlinux-${LINUX_VERSION}.${MACHINE}.xz
     R=${DEPLOY_DIR_IMAGE}/${PN}-${MACHINE}.squashfs-xz
     I=${DEPLOY_DIR_IMAGE}/${PN}-${MACHINE}.img
-    vtss-mkimage.pl --machine=${MACHINE} --soc=${SOC_FAMILY} --socfam=${CHIP_FAMILY} --kernel=$K --rootfs=$R --out=$I
+    [ -f $K ] && vtss-mkimage.pl --machine=${MACHINE} --soc=${SOC_FAMILY} --socfam=${CHIP_FAMILY} --kernel=$K --rootfs=$R --out=$I
+    exit 0
 }
 
 # Don't grok GPLv3
