@@ -66,6 +66,10 @@ VTSS_API_DEFINES_jaguar2-cu48 =   " -DVTSS_PRODUCT_CHIP=JAGUAR_2         \
                                     -DVTSS_OPT_PORT_COUNT=51             \
                                   "
 
+VTSS_API_DEFINES_servalt      =   " -DVTSS_PRODUCT_CHIP=SERVAL_TE10      \
+                                    -DVTSS_PRODUCT_HW=BOARD_SERVALT_REF  \
+                                  "
+
 FILES_${PN}-dev += "/usr/share/vtss_api/cmake/*"
 PKG_${PN} = "${PN}-${MACHINE}"
 PKG_${PN}-dev = "${PN}-${MACHINE}-dev"

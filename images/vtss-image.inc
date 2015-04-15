@@ -24,6 +24,7 @@ CHIP_FAMILY_jaguar1      = "3"
 CHIP_FAMILY_jaguar1-dual = "3"
 CHIP_FAMILY_serval1      = "4"
 CHIP_FAMILY_jaguar2      = "5"
+CHIP_FAMILY_servalt      = "6"
 
 do_combine_image() {
     K=${DEPLOY_DIR_IMAGE}/vmlinux-${LINUX_VERSION}.${MACHINE}.xz
